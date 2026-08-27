@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Civic & Cici</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff1d2;font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#54351f}
+.app{max-width:430px;margin:auto;min-height:100vh;padding:25px 14px 110px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.coin,.card,.stat{background:white;border-radius:18px;padding:12px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.hero{text-align:center;background:linear-gradient(#9bdcff 0 45%,#f3c77d 45%);border-radius:28px;padding:30px 10px;min-height:330px}
+.birds{font-size:95px;margin-top:60px}
+.names{font-size:24px;font-weight:900}
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:12px 0}
+button{border:0;border-radius:15px;padding:12px 5px;font-weight:800;color:#54351f;background:white}
+.choice{display:block;width:100%;background:#ffe4a8;margin-top:8px;text-align:left}
+.nav{position:fixed;bottom:0;left:0;right:0;background:white;padding:10px 5px 25px;display:flex;justify-content:space-around}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="top">
+<h2>🐥 Civic & Cici</h2>
+<div class="coin">🪙 <span id="coins">120</span></div>
+</div>
+
+<div class="stats">
+<div class="stat">❤️ Sevgi <b id="love">72</b>%</div>
+<div class="stat">😂 Eğlence <b id="fun">68</b>%</div>
+<div class="stat">🍕 Tokluk <b id="food">64</b>%</div>
+<div class="stat">⚡ Enerji <b id="energy">78</b>%</div>
+</div>
+
+<div class="hero">
+<div class="birds">🐥 🐥</div>
+<div class="names">CIVIC ❤️ CICI</div>
+<p>Birlikte yaşam macerası</p>
+</div>
+
+<div class="actions">
+<button onclick="act('love')">🤗<br>Sarıl</button>
+<button onclick="act('food')">🍕<br>Besle</button>
+<button onclick="act('fun')">🎮<br>Oyna</button>
+<button onclick="act('energy')">😴<br>Uyu</button>
+</div>
+
+<div class="card">
+<b>🌙 Bölüm 1 — Gece 02:00</b>
+<p>Civic acıktı ama Cici uyuyor. Ne yapsın?</p>
+
+<button class="choice" onclick="choice(8,3)">
+🤫 Sessizce mutfağa git
+</button>
+
+<button class="choice" onclick="choice(5,-2)">
+😄 Cici'yi uyandır
+</button>
+
+<button class="choice" onclick="choice(2,1)">
+🛏️ Aç yat
+</button>
+
+</div>
+</div>
+
+<div class="nav">
+<button>🏠<br>Ev</button>
+<button onclick="alert('Yeni bölümler yakında!')">📖<br>Bölümler</button>
+<button onclick="game()">🍕<br>Mini Oyun</button>
+<button onclick="daily()">🎁<br>Günlük</button>
+</div>
+
+<script>
+let s=JSON.parse(localStorage.getItem("civic")||"null")||
+{coins:120,love:72,fun:68,food:64,energy:78};
+
+function save(){
+localStorage.setItem("civic",JSON.stringify(s));
+render();
+}
+
+function render(){
+coins.innerText=s.coins;
+love.innerText=s.love;
+fun.innerText=s.fun;
+food.innerText=s.food;
+energy.innerText=s.energy;
+}
+
+function act(k){
+s[k]=Math.min(100,s[k]+10);
+s.coins+=2;
+save();
+}
+
+function choice(c,l){
+s.coins+=c;
+s.love=Math.max(0,Math.min(100,s.love+l));
+save();
+alert("Seçimin kaydedildi! +"+c+" coin");
+}
+
+function game(){
+if(Math.random()>.45){
+s.coins+=25;
+s.fun=Math.min(100,s.fun+8);
+save();
+alert("🍕 Pizzayı kaptın! +25 coin");
+}else{
+alert("😄 Cici pizzayı kaptı! Tekrar dene.");
+}
+}
+
+function daily(){
+s.coins+=50;
+save();
+alert("🎁 +50 günlük coin!");
+}
+
+render();
+</script>
+
+</body>
+</html>
