@@ -3,128 +3,124 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Civic & Cici</title>
+<title>Modoğlu Denizcilik | Fuar CRM</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#fff1d2;font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#54351f}
-.app{max-width:430px;margin:auto;min-height:100vh;padding:25px 14px 110px}
-.top{display:flex;justify-content:space-between;align-items:center}
-.coin,.card,.stat{background:white;border-radius:18px;padding:12px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
-.hero{text-align:center;background:linear-gradient(#9bdcff 0 45%,#f3c77d 45%);border-radius:28px;padding:30px 10px;min-height:330px}
-.birds{font-size:95px;margin-top:60px}
-.names{font-size:24px;font-weight:900}
-.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:12px 0}
-button{border:0;border-radius:15px;padding:12px 5px;font-weight:800;color:#54351f;background:white}
-.choice{display:block;width:100%;background:#ffe4a8;margin-top:8px;text-align:left}
-.nav{position:fixed;bottom:0;left:0;right:0;background:white;padding:10px 5px 25px;display:flex;justify-content:space-around}
+:root{--navy:#0d2742;--navy2:#173c61;--blue:#1677ff;--bg:#f4f7fb;--card:#fff;--text:#16283d;--muted:#6d7b8b;--line:#dfe7f0;--green:#12a66a;--red:#d94b4b;--orange:#e99b29}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(155deg,#071c31,#173c61 58%,#1c5a8f)}
+.login-card{width:min(420px,100%);background:#fff;border-radius:26px;padding:28px;box-shadow:0 25px 80px #001b3550}.brand{display:flex;align-items:center;gap:13px;margin-bottom:25px}.logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--navy),#1e70ad);display:grid;place-items:center;color:white;font-weight:900;font-size:20px}.brand h1{margin:0;font-size:21px}.brand small{color:var(--muted)}
+label{display:block;font-size:12px;font-weight:700;margin:13px 0 6px;color:#536276}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 13px;background:#fff;color:var(--text);outline:none}input:focus,select:focus,textarea:focus{border-color:#6daaf9;box-shadow:0 0 0 3px #1677ff12}textarea{min-height:92px;resize:vertical}.primary{border:0;border-radius:13px;background:var(--blue);color:#fff;padding:13px 17px;font-weight:800}.secondary{border:1px solid var(--line);border-radius:13px;background:#fff;padding:12px 15px;font-weight:700;color:var(--text)}.danger{border:0;border-radius:10px;background:#fff0f0;color:var(--red);padding:8px 10px;font-weight:700}.full{width:100%}
+.shell{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:238px;background:var(--navy);padding:22px 14px;color:#fff;z-index:4}.side-brand{padding:0 10px 18px;border-bottom:1px solid #ffffff18;margin-bottom:14px}.side-brand b{display:block;font-size:17px}.side-brand span{font-size:12px;color:#b7cce0}.menu button{width:100%;border:0;background:transparent;color:#d8e6f4;border-radius:12px;text-align:left;padding:11px 12px;margin:3px 0;font-weight:650}.menu button.active,.menu button:hover{background:#ffffff12;color:#fff}.userbox{position:absolute;bottom:18px;left:14px;right:14px;background:#ffffff0f;border-radius:14px;padding:11px}.userbox b,.userbox small{display:block}.userbox small{color:#b7cce0;margin-top:3px}
+.main{margin-left:238px;padding:24px;max-width:1500px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:19px}.topbar h2{margin:0;font-size:23px}.topbar p{margin:3px 0 0;color:var(--muted);font-size:13px}.actions{display:flex;gap:8px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:#fff;border:1px solid #e9eef4;border-radius:18px;padding:18px;box-shadow:0 6px 20px #17314b09}.stat{grid-column:span 3}.stat strong{font-size:27px;display:block;margin-top:6px}.stat span{font-size:12px;color:var(--muted)}.panel8{grid-column:span 8}.panel4{grid-column:span 4}.panel12{grid-column:span 12}.section-title{font-size:15px;font-weight:800;margin:0 0 14px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}.span2{grid-column:span 2}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{padding:6px 9px;border-radius:999px;background:#eef5ff;color:#29639e;font-size:11px;font-weight:800}.customer-list{display:grid;gap:9px}.customer{border:1px solid var(--line);border-radius:14px;padding:13px;display:flex;justify-content:space-between;gap:12px;align-items:center}.customer b{display:block}.customer small{color:var(--muted)}.customer .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.pill{font-size:10px;background:#f1f4f8;border-radius:999px;padding:5px 8px;color:#526578}.filters{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:8px;margin-bottom:12px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:820px}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid #edf0f4;font-size:12px}th{font-size:11px;color:#6b7c8e;background:#fafbfd;position:sticky;top:0}.badge{padding:5px 8px;border-radius:999px;font-size:10px;font-weight:800;background:#eaf4ff;color:#2169b0}.notice{border-radius:12px;padding:10px 12px;background:#fff8e9;color:#8a641d;font-size:12px;margin-bottom:12px}
+.mobilebar{display:none}.modal{position:fixed;inset:0;background:#06182b77;display:grid;place-items:center;padding:20px;z-index:20}.modal-card{width:min(560px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:20px}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal-head h3{margin:0}.iconbtn{border:0;background:#f0f3f7;border-radius:10px;width:36px;height:36px;font-weight:900}
+@media(max-width:850px){.sidebar{display:none}.main{margin:0;padding:14px 12px 88px}.topbar{align-items:flex-start}.topbar h2{font-size:20px}.topbar .secondary{display:none}.stat{grid-column:span 6}.panel8,.panel4,.panel12{grid-column:span 12}.filters{grid-template-columns:1fr 1fr}.filters input:first-child{grid-column:span 2}.form-grid{grid-template-columns:1fr}.span2{grid-column:span 1}.mobilebar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;z-index:10;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:7px 5px calc(7px + env(safe-area-inset-bottom))}.mobilebar button{border:0;background:transparent;font-size:10px;font-weight:750;color:#637386}.mobilebar button span{font-size:20px;display:block;margin-bottom:3px}.mobilebar button.active{color:var(--blue)}.customer{align-items:flex-start}.customer .secondary{padding:8px 10px}.desktop-new{display:none}}
 </style>
 </head>
-
 <body>
-
-<div class="app">
-
-<div class="top">
-<h2>🐥 Civic & Cici</h2>
-<div class="coin">🪙 <span id="coins">120</span></div>
+<div id="loginView" class="login">
+  <div class="login-card">
+    <div class="brand"><div class="logo">MD</div><div><h1>Modoğlu Denizcilik</h1><small>Fuar Müşteri Kayıt Sistemi</small></div></div>
+    <div id="setupBox" class="hidden">
+      <div class="notice">İlk kullanım: Yönetici hesabınızı oluşturun.</div>
+      <label>Ad Soyad</label><input id="setupName" placeholder="Örn. Murat Can İlhan">
+      <label>Kullanıcı Adı</label><input id="setupUser" placeholder="kullaniciadi" autocomplete="username">
+      <label>Şifre</label><input id="setupPass" type="password" placeholder="En az 4 karakter" autocomplete="new-password">
+      <button class="primary full" style="margin-top:16px" onclick="setupAdmin()">Yönetici Hesabı Oluştur</button>
+    </div>
+    <div id="loginBox">
+      <label>Kullanıcı Adı</label><input id="loginUser" autocomplete="username">
+      <label>Şifre</label><input id="loginPass" type="password" autocomplete="current-password">
+      <div id="loginError" style="min-height:20px;color:#c33;font-size:12px;margin-top:8px"></div>
+      <button class="primary full" onclick="login()">Giriş Yap</button>
+    </div>
+  </div>
 </div>
 
-<div class="stats">
-<div class="stat">❤️ Sevgi <b id="love">72</b>%</div>
-<div class="stat">😂 Eğlence <b id="fun">68</b>%</div>
-<div class="stat">🍕 Tokluk <b id="food">64</b>%</div>
-<div class="stat">⚡ Enerji <b id="energy">78</b>%</div>
+<div id="appView" class="shell hidden">
+  <aside class="sidebar">
+    <div class="side-brand"><b>Modoğlu Denizcilik</b><span>Fuar CRM</span></div>
+    <div class="menu">
+      <button data-page="dashboard" class="active" onclick="go('dashboard')">⌂ &nbsp; Ana Sayfa</button>
+      <button data-page="new" onclick="go('new')">＋ &nbsp; Yeni Müşteri</button>
+      <button data-page="customers" onclick="go('customers')">▦ &nbsp; Müşteriler</button>
+      <button data-page="users" id="usersMenu" onclick="go('users')">⚙ &nbsp; Kullanıcı Yönetimi</button>
+    </div>
+    <div class="userbox"><b id="sideUser"></b><small id="sideRole"></small><button onclick="logout()" style="margin-top:8px;border:0;background:transparent;color:#fff;padding:0">Çıkış yap</button></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar"><div><h2 id="pageTitle">Ana Sayfa</h2><p id="pageSub">Fuar müşteri kayıt ve takip ekranı</p></div><div class="actions"><button class="secondary" onclick="logout()">Çıkış</button><button class="primary desktop-new" onclick="go('new')">+ Yeni Müşteri</button></div></div>
+
+    <section id="page-dashboard" class="page">
+      <div class="grid">
+        <div class="card stat"><span>Toplam Müşteri</span><strong id="stTotal">0</strong></div>
+        <div class="card stat"><span>Bugün Eklenen</span><strong id="stToday">0</strong></div>
+        <div class="card stat"><span>Farklı İl</span><strong id="stCities">0</strong></div>
+        <div class="card stat"><span>Aktif Kullanıcı</span><strong id="stUsers">0</strong></div>
+        <div class="card panel8"><h3 class="section-title">Son Kayıtlar</h3><div id="recentList" class="customer-list"></div></div>
+        <div class="card panel4"><h3 class="section-title">Bölge Özeti</h3><div id="regionSummary"></div></div>
+      </div>
+    </section>
+
+    <section id="page-new" class="page hidden">
+      <div class="grid"><div class="card panel8">
+        <h3 class="section-title">Yeni Müşteri Kartı</h3>
+        <form id="customerForm" onsubmit="saveCustomer(event)"><div class="form-grid">
+          <div class="span2"><label>Firma / Müşteri Ünvanı *</label><input id="company" required placeholder="Firma ünvanını yazın"></div>
+          <div><label>Yetkili Kişi *</label><input id="contact" required></div><div><label>Telefon *</label><input id="phone" type="tel" required placeholder="05xx xxx xx xx"></div>
+          <div><label>E-posta</label><input id="email" type="email"></div><div><label>VKN / TCKN</label><input id="taxno" placeholder="Zorunlu değil"></div>
+          <div><label>Sektör *</label><select id="sector" required onchange="toggleOtherSector()"><option value="">Seçiniz</option><option>Marina</option><option>Tekne / Yat</option><option>Charter</option><option>Balıkçılık</option><option>Turizm</option><option>Denizcilik</option><option>Tersane</option><option>Diğer</option></select></div>
+          <div id="otherSectorWrap" class="hidden"><label>Diğer Sektör</label><input id="otherSector" placeholder="Sektörü yazın"></div>
+          <div><label>Satış Tipi *</label><select id="saleType" required><option value="">Seçiniz</option><option>Akaryakıt</option><option>Madeni Yağ</option><option>Marine Hizmet</option><option>Yatçılık</option><option>Diğer</option></select></div>
+          <div><label>İl *</label><select id="city" required onchange="loadDistricts()"></select></div><div><label>İlçe *</label><select id="district" required><option value="">Önce il seçiniz</option></select></div>
+          <div class="span2"><label>Açık Adres</label><textarea id="address" placeholder="Opsiyonel açık adres"></textarea></div>
+          <div class="span2"><label>Görüşme / Müşteri Notu</label><textarea id="note" placeholder="Fuarda konuşulan konu, talep, takip notu vb."></textarea></div>
+          <div class="span2"><div class="actions" style="margin-top:15px"><button type="submit" class="primary">Müşteriyi Kaydet</button><button type="button" class="secondary" onclick="customerForm.reset();toggleOtherSector();loadCities()">Temizle</button></div></div>
+        </div></form>
+      </div><div class="card panel4"><h3 class="section-title">Hızlı Kayıt Bilgisi</h3><p style="font-size:13px;color:var(--muted);line-height:1.6">Zorunlu alanlar yıldız (*) ile işaretlidir. VKN/TCKN, e-posta ve açık adres isteğe bağlıdır. Kayıt sahibi ve tarih sistem tarafından otomatik tutulur.</p></div></div>
+    </section>
+
+    <section id="page-customers" class="page hidden"><div class="card">
+      <h3 class="section-title">Tüm Müşteriler</h3>
+      <div class="filters"><input id="fSearch" oninput="renderCustomers()" placeholder="Ünvan, yetkili, telefon, VKN/TCKN ara"><select id="fCity" onchange="renderCustomers()"><option value="">Tüm İller</option></select><select id="fDistrict" onchange="renderCustomers()"><option value="">Tüm İlçeler</option></select><select id="fSector" onchange="renderCustomers()"><option value="">Tüm Sektörler</option></select><select id="fSale" onchange="renderCustomers()"><option value="">Tüm Satış Tipleri</option></select></div>
+      <div class="table-wrap"><table><thead><tr><th>Firma</th><th>Yetkili</th><th>Telefon</th><th>Sektör</th><th>Satış Tipi</th><th>Bölge</th><th>Kaydeden</th><th>Tarih</th><th></th></tr></thead><tbody id="customerRows"></tbody></table></div>
+    </div></section>
+
+    <section id="page-users" class="page hidden"><div class="grid"><div class="card panel12"><div style="display:flex;justify-content:space-between;align-items:center"><h3 class="section-title">Kullanıcı Yönetimi</h3><button class="primary" onclick="openUserModal()">+ Kullanıcı Oluştur</button></div><div class="table-wrap"><table><thead><tr><th>Ad Soyad</th><th>Kullanıcı Adı</th><th>Rol</th><th>Durum</th><th>Oluşturma Tarihi</th><th></th></tr></thead><tbody id="userRows"></tbody></table></div></div></div></section>
+  </main>
+
+  <nav class="mobilebar"><button data-page="dashboard" class="active" onclick="go('dashboard')"><span>⌂</span>Ana Sayfa</button><button data-page="new" onclick="go('new')"><span>＋</span>Yeni Kayıt</button><button data-page="customers" onclick="go('customers')"><span>▦</span>Müşteriler</button><button data-page="users" id="mobileUsers" onclick="go('users')"><span>⚙</span>Yönetim</button></nav>
 </div>
 
-<div class="hero">
-<div class="birds">🐥 🐥</div>
-<div class="names">CIVIC ❤️ CICI</div>
-<p>Birlikte yaşam macerası</p>
-</div>
-
-<div class="actions">
-<button onclick="act('love')">🤗<br>Sarıl</button>
-<button onclick="act('food')">🍕<br>Besle</button>
-<button onclick="act('fun')">🎮<br>Oyna</button>
-<button onclick="act('energy')">😴<br>Uyu</button>
-</div>
-
-<div class="card">
-<b>🌙 Bölüm 1 — Gece 02:00</b>
-<p>Civic acıktı ama Cici uyuyor. Ne yapsın?</p>
-
-<button class="choice" onclick="choice(8,3)">
-🤫 Sessizce mutfağa git
-</button>
-
-<button class="choice" onclick="choice(5,-2)">
-😄 Cici'yi uyandır
-</button>
-
-<button class="choice" onclick="choice(2,1)">
-🛏️ Aç yat
-</button>
-
-</div>
-</div>
-
-<div class="nav">
-<button>🏠<br>Ev</button>
-<button onclick="alert('Yeni bölümler yakında!')">📖<br>Bölümler</button>
-<button onclick="game()">🍕<br>Mini Oyun</button>
-<button onclick="daily()">🎁<br>Günlük</button>
-</div>
+<div id="userModal" class="modal hidden"><div class="modal-card"><div class="modal-head"><h3>Yeni Kullanıcı</h3><button class="iconbtn" onclick="closeUserModal()">×</button></div><label>Ad Soyad</label><input id="uName"><label>Kullanıcı Adı</label><input id="uUser"><label>Şifre</label><input id="uPass" type="password"><label>Rol</label><select id="uRole"><option value="user">Kullanıcı</option><option value="admin">Yönetici</option></select><button class="primary full" style="margin-top:16px" onclick="createUser()">Kullanıcıyı Kaydet</button></div></div>
 
 <script>
-let s=JSON.parse(localStorage.getItem("civic")||"null")||
-{coins:120,love:72,fun:68,food:64,energy:78};
-
-function save(){
-localStorage.setItem("civic",JSON.stringify(s));
-render();
-}
-
-function render(){
-coins.innerText=s.coins;
-love.innerText=s.love;
-fun.innerText=s.fun;
-food.innerText=s.food;
-energy.innerText=s.energy;
-}
-
-function act(k){
-s[k]=Math.min(100,s[k]+10);
-s.coins+=2;
-save();
-}
-
-function choice(c,l){
-s.coins+=c;
-s.love=Math.max(0,Math.min(100,s.love+l));
-save();
-alert("Seçimin kaydedildi! +"+c+" coin");
-}
-
-function game(){
-if(Math.random()>.45){
-s.coins+=25;
-s.fun=Math.min(100,s.fun+8);
-save();
-alert("🍕 Pizzayı kaptın! +25 coin");
-}else{
-alert("😄 Cici pizzayı kaptı! Tekrar dene.");
-}
-}
-
-function daily(){
-s.coins+=50;
-save();
-alert("🎁 +50 günlük coin!");
-}
-
-render();
+const K={users:'md_crm_users',customers:'md_crm_customers',session:'md_crm_session'};
+const cities={
+'Adana':['Aladağ','Ceyhan','Çukurova','Kozan','Sarıçam','Seyhan','Yüreğir'],'Ankara':['Altındağ','Çankaya','Etimesgut','Gölbaşı','Keçiören','Mamak','Sincan','Yenimahalle'],'Antalya':['Alanya','Demre','Finike','Kaş','Kemer','Konyaaltı','Kumluca','Manavgat','Muratpaşa','Serik'],'Aydın':['Didim','Efeler','Kuşadası','Söke'],'Balıkesir':['Ayvalık','Bandırma','Burhaniye','Edremit'],'Bursa':['Gemlik','Mudanya','Nilüfer','Osmangazi'],'Çanakkale':['Ayvacık','Bozcaada','Çanakkale Merkez','Eceabat','Gelibolu','Gökçeada'],'İstanbul':['Adalar','Ataşehir','Avcılar','Bakırköy','Beşiktaş','Beykoz','Beylikdüzü','Büyükçekmece','Kadıköy','Kartal','Maltepe','Pendik','Sarıyer','Şile','Tuzla','Üsküdar'],'İzmir':['Aliağa','Balçova','Çeşme','Dikili','Foça','Karaburun','Karşıyaka','Konak','Seferihisar','Urla'],'Kocaeli':['Başiskele','Darıca','Derince','Gebze','Gölcük','İzmit','Karamürsel','Körfez'],'Mersin':['Akdeniz','Anamur','Erdemli','Mezitli','Silifke','Tarsus','Yenişehir'],'Muğla':['Bodrum','Dalaman','Datça','Fethiye','Köyceğiz','Marmaris','Menteşe','Milas','Ortaca','Seydikemer'],'Samsun':['Atakum','Bafra','Canik','İlkadım','Tekkeköy'],'Trabzon':['Akçaabat','Ortahisar','Sürmene','Yomra'],'Yalova':['Altınova','Armutlu','Çınarcık','Yalova Merkez'],'Zonguldak':['Alaplı','Çaycuma','Ereğli','Zonguldak Merkez']};
+const allCities=['Adana','Adıyaman','Afyonkarahisar','Ağrı','Aksaray','Amasya','Ankara','Antalya','Ardahan','Artvin','Aydın','Balıkesir','Bartın','Batman','Bayburt','Bilecik','Bingöl','Bitlis','Bolu','Burdur','Bursa','Çanakkale','Çankırı','Çorum','Denizli','Diyarbakır','Düzce','Edirne','Elazığ','Erzincan','Erzurum','Eskişehir','Gaziantep','Giresun','Gümüşhane','Hakkari','Hatay','Iğdır','Isparta','İstanbul','İzmir','Kahramanmaraş','Karabük','Karaman','Kars','Kastamonu','Kayseri','Kırıkkale','Kırklareli','Kırşehir','Kilis','Kocaeli','Konya','Kütahya','Malatya','Manisa','Mardin','Mersin','Muğla','Muş','Nevşehir','Niğde','Ordu','Osmaniye','Rize','Sakarya','Samsun','Siirt','Sinop','Sivas','Şanlıurfa','Şırnak','Tekirdağ','Tokat','Trabzon','Tunceli','Uşak','Van','Yalova','Yozgat','Zonguldak'];
+function get(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch{return []}}function set(k,v){localStorage.setItem(k,JSON.stringify(v))}function session(){try{return JSON.parse(localStorage.getItem(K.session)||'null')}catch{return null}}
+function boot(){const users=get(K.users);if(!users.length){setupBox.classList.remove('hidden');loginBox.classList.add('hidden')}const s=session();if(s&&users.find(x=>x.id===s.id&&x.active!==false))showApp(s)}
+function setupAdmin(){if(!setupName.value.trim()||!setupUser.value.trim()||setupPass.value.length<4)return alert('Ad soyad, kullanıcı adı ve en az 4 karakter şifre girin.');const u={id:Date.now(),name:setupName.value.trim(),username:setupUser.value.trim(),password:setupPass.value,role:'admin',active:true,createdAt:new Date().toISOString()};set(K.users,[u]);localStorage.setItem(K.session,JSON.stringify(u));showApp(u)}
+function login(){const u=get(K.users).find(x=>x.username===loginUser.value.trim()&&x.password===loginPass.value);if(!u){loginError.textContent='Kullanıcı adı veya şifre hatalı.';return}if(u.active===false){loginError.textContent='Bu kullanıcı pasif durumda.';return}localStorage.setItem(K.session,JSON.stringify(u));showApp(u)}
+function logout(){localStorage.removeItem(K.session);location.reload()}
+function showApp(u){loginView.classList.add('hidden');appView.classList.remove('hidden');sideUser.textContent=u.name;sideRole.textContent=u.role==='admin'?'Yönetici':'Kullanıcı';usersMenu.classList.toggle('hidden',u.role!=='admin');mobileUsers.classList.toggle('hidden',u.role!=='admin');loadCities();renderDashboard();renderCustomers();renderUsers()}
+function go(p){if(p==='users'&&session()?.role!=='admin')p='dashboard';document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById('page-'+p).classList.remove('hidden');document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===p));const titles={dashboard:['Ana Sayfa','Fuar müşteri kayıt ve takip ekranı'],new:['Yeni Müşteri','Yeni müşteri kartı oluşturun'],customers:['Müşteriler','Kayıtlı müşterileri filtreleyin ve inceleyin'],users:['Kullanıcı Yönetimi','Sisteme giriş yapacak kullanıcıları yönetin']};pageTitle.textContent=titles[p][0];pageSub.textContent=titles[p][1];if(p==='customers')renderCustomers();if(p==='users')renderUsers();if(p==='dashboard')renderDashboard();scrollTo(0,0)}
+function loadCities(){city.innerHTML='<option value="">İl seçiniz</option>'+allCities.map(x=>`<option>${x}</option>`).join('');fCity.innerHTML='<option value="">Tüm İller</option>'+allCities.map(x=>`<option>${x}</option>`).join('');fCity.onchange=()=>{loadFilterDistricts();renderCustomers()};loadDistricts();loadFilterDistricts()}
+function loadDistricts(){const c=city.value;const list=cities[c]||[];district.innerHTML='<option value="">İlçe seçiniz</option>'+list.map(x=>`<option>${x}</option>`).join('')+(c&&!list.length?'<option>Merkez</option><option>Diğer</option>':'')}
+function loadFilterDistricts(){const c=fCity.value;const all=get(K.customers).filter(x=>!c||x.city===c).map(x=>x.district).filter(Boolean);const unique=[...new Set(all)].sort();fDistrict.innerHTML='<option value="">Tüm İlçeler</option>'+unique.map(x=>`<option>${x}</option>`).join('')}
+function toggleOtherSector(){otherSectorWrap.classList.toggle('hidden',sector.value!=='Diğer');if(sector.value!=='Diğer')otherSector.value=''}
+function saveCustomer(e){e.preventDefault();const s=session(), arr=get(K.customers), sec=sector.value==='Diğer'?(otherSector.value.trim()||'Diğer'):sector.value;const c={id:Date.now(),company:company.value.trim(),contact:contact.value.trim(),phone:phone.value.trim(),email:email.value.trim(),taxno:taxno.value.trim(),sector:sec,saleType:saleType.value,city:city.value,district:district.value,address:address.value.trim(),note:note.value.trim(),createdBy:s.name,createdById:s.id,createdAt:new Date().toISOString()};arr.unshift(c);set(K.customers,arr);customerForm.reset();toggleOtherSector();loadCities();renderDashboard();alert('Müşteri kaydı başarıyla oluşturuldu.');go('dashboard')}
+function renderDashboard(){const a=get(K.customers), today=new Date().toDateString();stTotal.textContent=a.length;stToday.textContent=a.filter(x=>new Date(x.createdAt).toDateString()===today).length;stCities.textContent=new Set(a.map(x=>x.city).filter(Boolean)).size;stUsers.textContent=get(K.users).filter(x=>x.active!==false).length;recentList.innerHTML=a.slice(0,6).map(x=>`<div class="customer"><div><b>${esc(x.company)}</b><small>${esc(x.contact)} · ${esc(x.phone)}</small><div class="meta"><span class="pill">${esc(x.sector)}</span><span class="pill">${esc(x.city)} / ${esc(x.district)}</span><span class="pill">${fmt(x.createdAt)}</span></div></div><button class="secondary" onclick="viewCustomer(${x.id})">Detay</button></div>`).join('')||'<div style="color:var(--muted);font-size:13px">Henüz müşteri kaydı yok.</div>';const counts={};a.forEach(x=>counts[x.city]=(counts[x.city]||0)+1);regionSummary.innerHTML=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #edf0f4"><span>${esc(k)}</span><b>${v}</b></div>`).join('')||'<span style="color:var(--muted);font-size:13px">Kayıt geldikçe bölge dağılımı burada görünecek.</span>'}
+function renderCustomers(){const a=get(K.customers);const q=(fSearch?.value||'').toLocaleLowerCase('tr'),fc=fCity?.value||'',fd=fDistrict?.value||'',fs=fSector?.value||'',fsa=fSale?.value||'';const filtered=a.filter(x=>(!q||[x.company,x.contact,x.phone,x.taxno,x.email].join(' ').toLocaleLowerCase('tr').includes(q))&&(!fc||x.city===fc)&&(!fd||x.district===fd)&&(!fs||x.sector===fs)&&(!fsa||x.saleType===fsa));customerRows.innerHTML=filtered.map(x=>`<tr><td><b>${esc(x.company)}</b></td><td>${esc(x.contact)}</td><td>${esc(x.phone)}</td><td><span class="badge">${esc(x.sector)}</span></td><td>${esc(x.saleType)}</td><td>${esc(x.city)} / ${esc(x.district)}</td><td>${esc(x.createdBy)}</td><td>${fmt(x.createdAt)}</td><td><button class="secondary" onclick="viewCustomer(${x.id})">Detay</button></td></tr>`).join('')||'<tr><td colspan="9" style="text-align:center;color:#7b8997;padding:25px">Filtreye uygun kayıt bulunamadı.</td></tr>';const secs=[...new Set(a.map(x=>x.sector).filter(Boolean))].sort(), sales=[...new Set(a.map(x=>x.saleType).filter(Boolean))].sort();const sv=fSector.value,sav=fSale.value;fSector.innerHTML='<option value="">Tüm Sektörler</option>'+secs.map(x=>`<option>${esc(x)}</option>`).join('');fSale.innerHTML='<option value="">Tüm Satış Tipleri</option>'+sales.map(x=>`<option>${esc(x)}</option>`).join('');fSector.value=sv;fSale.value=sav}
+function viewCustomer(id){const x=get(K.customers).find(x=>x.id===id);if(!x)return;alert(`${x.company}\n\nYetkili: ${x.contact}\nTelefon: ${x.phone}\nE-posta: ${x.email||'-'}\nVKN/TCKN: ${x.taxno||'-'}\nSektör: ${x.sector}\nSatış Tipi: ${x.saleType}\nBölge: ${x.city} / ${x.district}\nAdres: ${x.address||'-'}\nNot: ${x.note||'-'}\n\nKaydeden: ${x.createdBy}\nTarih: ${fmt(x.createdAt)}`)}
+function openUserModal(){userModal.classList.remove('hidden')}function closeUserModal(){userModal.classList.add('hidden');uName.value=uUser.value=uPass.value=''}
+function createUser(){if(!uName.value.trim()||!uUser.value.trim()||uPass.value.length<4)return alert('Ad soyad, kullanıcı adı ve en az 4 karakter şifre girin.');const a=get(K.users);if(a.some(x=>x.username.toLocaleLowerCase('tr')===uUser.value.trim().toLocaleLowerCase('tr')))return alert('Bu kullanıcı adı zaten kullanılıyor.');a.push({id:Date.now(),name:uName.value.trim(),username:uUser.value.trim(),password:uPass.value,role:uRole.value,active:true,createdAt:new Date().toISOString()});set(K.users,a);closeUserModal();renderUsers();renderDashboard()}
+function renderUsers(){if(session()?.role!=='admin')return;const a=get(K.users);userRows.innerHTML=a.map(x=>`<tr><td><b>${esc(x.name)}</b></td><td>${esc(x.username)}</td><td>${x.role==='admin'?'Yönetici':'Kullanıcı'}</td><td><span class="badge" style="background:${x.active===false?'#fff0f0':'#eaf8f1'};color:${x.active===false?'#b94242':'#20845d'}">${x.active===false?'Pasif':'Aktif'}</span></td><td>${fmt(x.createdAt)}</td><td>${x.id===session()?.id?'Aktif oturum':`<button class="secondary" onclick="toggleUser(${x.id})">${x.active===false?'Aktif Et':'Pasif Et'}</button>`}</td></tr>`).join('')}
+function toggleUser(id){const a=get(K.users),u=a.find(x=>x.id===id);if(!u)return;u.active=u.active===false?true:false;set(K.users,a);renderUsers();renderDashboard()}
+function fmt(s){return new Intl.DateTimeFormat('tr-TR',{dateStyle:'short',timeStyle:'short'}).format(new Date(s))}function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+boot();
 </script>
-
 </body>
 </html>
